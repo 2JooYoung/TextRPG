@@ -66,15 +66,15 @@ void EnterLobby()
 	while (true)
 	{
 		cout << "-----------------------" << endl;
-		cout << "·Îºñ¿¡ ÀÔÀåÇß½À´Ï´Ù!" << endl;
+		cout << "ë¡œë¹„ì— ì…ì¥í–ˆìŠµë‹ˆë‹¤!" << endl;
 		cout << "-----------------------" << endl;
 
-		// ÇÃ·¹ÀÌ¾î Á÷¾÷ ¼±ÅÃ
+		// í”Œë ˆì´ì–´ ì§ì—… ì„ íƒ
 		SelectPlayer();
 
 
 		cout << "-----------------------" << endl;
-		cout << "(1) ÇÊµå ÀÔÀå  (2) °ÔÀÓ Á¾·á" << endl;
+		cout << "(1) í•„ë“œ ì…ì¥  (2) ê²Œì„ ì¢…ë£Œ" << endl;
 		cout << "-----------------------" << endl;
 
 		int input;
@@ -102,8 +102,8 @@ void SelectPlayer()
 	{
 
 		cout << "-----------------------" << endl;
-		cout << "Á÷¾÷À» °ñ¶óÁÖ¼¼¿ä!" << endl;
-		cout << "(1) ±â»ç  (2) ±Ã¼ö  (3) ¸¶¹ı»ç" << endl;
+		cout << "ì§ì—…ì„ ê³¨ë¼ì£¼ì„¸ìš”!" << endl;
+		cout << "(1) ê¸°ì‚¬  (2) ê¶ìˆ˜  (3) ë§ˆë²•ì‚¬" << endl;
 		cout << "> " << endl;
 
 		int choice;
@@ -144,16 +144,16 @@ void EnterField()
 	while (true)
 	{
 		cout << "-----------------------" << endl;
-		cout << "ÇÊµå¿¡ ÀÔÀåÇß½À´Ï´Ù!" << endl;
+		cout << "í•„ë“œì— ì…ì¥í–ˆìŠµë‹ˆë‹¤!" << endl;
 		cout << "-----------------------" << endl;
 
 		cout << "[PLAYER] HP : " << playerStat.hp << " / ATT : " << playerStat.attack << " / DEF" << playerStat.defence << endl;
 
-		//¸ó½ºÅÍ ½ºÆù
+		//ëª¬ìŠ¤í„° ìŠ¤í°
 		CreateRandomMonster();
 
 		cout << "-----------------------" << endl;
-		cout << "(1) ÀüÅõ  (2) µµÁÖ" << endl;
+		cout << "(1) ì „íˆ¬  (2) ë„ì£¼" << endl;
 		cout << "> ";
 
 		int input;
@@ -176,14 +176,14 @@ void EnterField()
 
 void CreateRandomMonster()
 {
-	// random : 0~32767 °ª ·£´ı ÃßÃâ
-	// 3À¸·Î ³ª´«´Ù¸é Ç×»ó 0,1,2 ¼ıÀÚ°¡ µµÃâ
+	// random : 0~32767 ê°’ ëœë¤ ì¶”ì¶œ
+	// 3ìœ¼ë¡œ ë‚˜ëˆˆë‹¤ë©´ í•­ìƒ 0,1,2 ìˆ«ìê°€ ë„ì¶œ
 	int randomChoice = 1 + (rand() % 3);
 
 	switch (randomChoice)
 	{
 	case MT_Slime:
-		cout << "½½¶óÀÓ »ı¼ºÁß....!" << endl << "[SLIME] HP : 30 / ATT : 2 / DEF : 0" << endl;
+		cout << "ìŠ¬ë¼ì„ ìƒì„±ì¤‘....!" << endl << "[SLIME] HP : 30 / ATT : 2 / DEF : 0" << endl;
 		monsterStat.monsterHp = 30;
 		monsterStat.monsterAttack = 2;
 		monsterStat.monsterDefence = 0;
@@ -191,7 +191,7 @@ void CreateRandomMonster()
 		break;
 
 	case MT_Orc:
-		cout << "¿ÀÅ© »ı¼ºÁß....!"  << endl << "[ORC] HP : 40 / ATT : 10 / DEF : 3" << endl;
+		cout << "ì˜¤í¬ ìƒì„±ì¤‘....!"  << endl << "[ORC] HP : 40 / ATT : 10 / DEF : 3" << endl;
 		monsterStat.monsterHp = 40;
 		monsterStat.monsterAttack = 10;
 		monsterStat.monsterDefence = 3;
@@ -199,7 +199,7 @@ void CreateRandomMonster()
 		break;
 
 	case MT_Skeleton:
-		cout << "ÇØ°ñ »ı¼ºÁß....!" << endl << "[SKELETON] HP:80 / ATT:15 / DEF:5" << endl;
+		cout << "í•´ê³¨ ìƒì„±ì¤‘....!" << endl << "[SKELETON] HP:80 / ATT:15 / DEF:5" << endl;
 		monsterStat.monsterHp = 80;
 		monsterStat.monsterAttack = 15;
 		monsterStat.monsterDefence = 5;
@@ -222,22 +222,22 @@ void EnterBattle()
 		if (damage < 0)
 			damage = 0;
 
-		//°ø°İ
+		//ê³µê²©
 		monsterStat.monsterHp -= damage;
 		if (monsterStat.monsterHp < 0)
 			monsterStat.monsterHp = 0;
 
-		cout << "¸ó½ºÅÍÀÇ ³²Àº Ã¼·Â : " << monsterStat.monsterHp << endl;
+		cout << "ëª¬ìŠ¤í„°ì˜ ë‚¨ì€ ì²´ë ¥ : " << monsterStat.monsterHp << endl;
 
 		if (monsterStat.monsterHp == 0)
 		{
-			cout << "¸ó½ºÅÍ¸¦ Ã³Ä¡Çß½À´Ï´Ù!" << endl;
+			cout << "ëª¬ìŠ¤í„°ë¥¼ ì²˜ì¹˜í–ˆìŠµë‹ˆë‹¤!" << endl;
 			WaitForNextKey();
 			return;
 		}
 
 
-		//¹İ°İ
+		//ë°˜ê²©
 		damage = monsterStat.monsterAttack - playerStat.defence;
 		if (damage < 0)
 			damage = 0;
@@ -246,11 +246,11 @@ void EnterBattle()
 		if (playerStat.hp < 0)
 			playerStat.hp = 0;
 
-		cout << "ÇÃ·¹ÀÌ¾îÀÇ ³²Àº Ã¼·Â : " << playerStat.hp << endl;
+		cout << "í”Œë ˆì´ì–´ì˜ ë‚¨ì€ ì²´ë ¥ : " << playerStat.hp << endl;
 
 		if (playerStat.hp == 0)
 		{
-			cout << "´ç½ÅÀº »ç¸ÁÇß½À´Ï´Ù...........GAME OVER" << endl;
+			cout << "ë‹¹ì‹ ì€ ì‚¬ë§í–ˆìŠµë‹ˆë‹¤...........GAME OVER" << endl;
 			WaitForNextKey();
 			return;
 		}
@@ -261,11 +261,13 @@ void EnterBattle()
 
 void WaitForNextKey()
 {
-	cout << "°è¼ÓÇÏ·Á¸é 1À» ´­·¯ÁÖ¼¼¿ä" << endl;
+	cout << "ê³„ì†í•˜ë ¤ë©´ 1ì„ ëˆŒëŸ¬ì£¼ì„¸ìš”" << endl;
 	cout << "> ";
 
 	int input;
 	cin >> input;
-
+	
+	// ì½˜ì†” ì°½ ë¹„ìš°ê¸°
 	system("cls");
+
 }
